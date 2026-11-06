@@ -9,6 +9,7 @@ final class AppModel {
     let devices = AudioDevices()
     let prompter: PrompterController
     let library = LibraryModel()
+    let updater: Updater
     let container: ModelContainer
 
     init() {
@@ -25,6 +26,7 @@ final class AppModel {
             preferences.hasCompletedOnboarding = !options.showsOnboarding
         }
         prompter = PrompterController(preferences: preferences, devices: devices, options: options)
+        updater = Updater(options: options)
 
         let configuration = ModelConfiguration(isStoredInMemoryOnly: options.isUITesting)
         do {
@@ -70,6 +72,7 @@ struct VaasiApp: App {
             SettingsView()
                 .environment(app.preferences)
                 .environment(app.devices)
+                .environment(app.updater)
         }
     }
 }
@@ -96,6 +99,10 @@ struct VaasiCommands: Commands {
     private var context: ModelContext { app.container.mainContext }
 
     var body: some Commands {
+        CommandGroup(after: .appInfo) {
+            Button("Check for Updates…") { app.updater.checkForUpdates() }
+                .disabled(!app.updater.canCheckForUpdates)
+        }
         CommandGroup(replacing: .newItem) {
             Button("New Note") { app.library.createNote(in: context) }
                 .keyboardShortcut("n")

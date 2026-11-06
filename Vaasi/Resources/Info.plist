@@ -28,6 +28,14 @@
 	<string>© 2026 Praveen Juge</string>
 	<key>NSMicrophoneUsageDescription</key>
 	<string>Vaasi listens so the prompter can scroll while you speak and follow your place in the script. Audio stays on your Mac.</string>
+	<key>SUEnableDownloaderService</key>
+	<true/>
+	<key>SUEnableInstallerLauncherService</key>
+	<true/>
+	<key>SUFeedURL</key>
+	<string>https://github.com/praveenjuge/vaasi/releases/latest/download/appcast.xml</string>
+	<key>SUPublicEDKey</key>
+	<string>6x/wtYqHCyy2SXNhYO+K3ID+vP2Wt9plswFb8r60iks=</string>
 	<key>NSSpeechRecognitionUsageDescription</key>
 	<string>Vaasi recognizes your speech on your Mac to keep the script at the line you're reading.</string>
 </dict>

@@ -20,11 +20,13 @@
 		41C8E16A87979F371B19E8EE /* MicTester.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1DCACE30908195AC26F538C /* MicTester.swift */; };
 		455B90A1559987B4CD3E6FCC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 10C067F249304E66F9323644 /* Assets.xcassets */; };
 		4A3248E95204ABB32F069D1C /* NoteTransfer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A97A4B7ADC43753C4C6D9A /* NoteTransfer.swift */; };
+		4CE5A3895243F068C9192628 /* Sparkle in Frameworks */ = {isa = PBXBuildFile; productRef = C1EA5F697BBFB6AB203C6C08 /* Sparkle */; };
 		4DDEB691946A79823009C71F /* PrivacyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F717DCBC5A82A3D81A46D7D2 /* PrivacyTests.swift */; };
 		53A956646FA9E2A7A6FD98B1 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7550DC400D12F9862A2D9B0 /* SettingsView.swift */; };
 		556BE0147033E7E4D59925AB /* VoicePipelineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4D1BB5E6A0C3FEEEF17C50 /* VoicePipelineTests.swift */; };
 		624097DA5BB3A8FEF8F17772 /* VaasiApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737B22CF13B4FD3D1571376B /* VaasiApp.swift */; };
 		64E5A9EF528E49916F50F527 /* PrompterTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36348F329BB0DC8D08899A38 /* PrompterTextView.swift */; };
+		69657ACF3F09D762B2C0F7C4 /* Updater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BC7307FC8590E782E4560B7 /* Updater.swift */; };
 		6E80EA416FB5B2D50BF7A601 /* LibraryFlowTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A63E153D737B5DF7AE05967A /* LibraryFlowTests.swift */; };
 		79E534BC86EC248D566ED480 /* VaasiCore in Frameworks */ = {isa = PBXBuildFile; productRef = 170DA251E75B199C8438FF08 /* VaasiCore */; };
 		B2CF25ECCE6B1F28B85B041F /* NoteTransferTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EFD48E64E2AB34FDEC5005F /* NoteTransferTests.swift */; };
@@ -64,6 +66,7 @@
 		36348F329BB0DC8D08899A38 /* PrompterTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrompterTextView.swift; sourceTree = "<group>"; };
 		3BD5107355ED71B169346BA1 /* VaasiTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = VaasiTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		41D2756CF244623BF689373D /* Vaasi.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = Vaasi.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6BC7307FC8590E782E4560B7 /* Updater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Updater.swift; sourceTree = "<group>"; };
 		737B22CF13B4FD3D1571376B /* VaasiApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaasiApp.swift; sourceTree = "<group>"; };
 		74A97A4B7ADC43753C4C6D9A /* NoteTransfer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteTransfer.swift; sourceTree = "<group>"; };
 		74F2A3B5DABA7948822283F1 /* PrompterPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrompterPanel.swift; sourceTree = "<group>"; };
@@ -101,6 +104,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FD40A8EF5E49BCF1962D8D3C /* VaasiCore in Frameworks */,
+				4CE5A3895243F068C9192628 /* Sparkle in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -158,6 +162,7 @@
 			children = (
 				A37D0C3EB4E78B32D4F8C33A /* LaunchOptions.swift */,
 				921F4994DAAA5E0938D8AD26 /* Preferences.swift */,
+				6BC7307FC8590E782E4560B7 /* Updater.swift */,
 				737B22CF13B4FD3D1571376B /* VaasiApp.swift */,
 			);
 			path = App;
@@ -257,6 +262,7 @@
 			name = Vaasi;
 			packageProductDependencies = (
 				F2086ED8E23FBF2926BEEBA0 /* VaasiCore */,
+				C1EA5F697BBFB6AB203C6C08 /* Sparkle */,
 			);
 			productName = Vaasi;
 			productReference = 41D2756CF244623BF689373D /* Vaasi.app */;
@@ -307,7 +313,7 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
-				LastUpgradeCheck = 2700;
+				LastUpgradeCheck = 2600;
 				TargetAttributes = {
 					738BFB9609920FC4EA62B0E4 = {
 						DevelopmentTeam = LW385M78LW;
@@ -334,6 +340,7 @@
 			mainGroup = FACA43ADA78DF25DBAE6A972;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
+				41FD955EA036DE2989325F4F /* XCRemoteSwiftPackageReference "Sparkle" */,
 				BB2FA8A1E75E58D9A260A6A9 /* XCLocalSwiftPackageReference "Packages/VaasiKit" */,
 			);
 			preferredProjectObjectVersion = 77;
@@ -390,6 +397,7 @@
 				11F3286265B020A05658C4D5 /* ScriptEditor.swift in Sources */,
 				53A956646FA9E2A7A6FD98B1 /* SettingsView.swift in Sources */,
 				1238F4F725422E04C9634F40 /* SpeechSession.swift in Sources */,
+				69657ACF3F09D762B2C0F7C4 /* Updater.swift in Sources */,
 				624097DA5BB3A8FEF8F17772 /* VaasiApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -729,10 +737,26 @@
 		};
 /* End XCLocalSwiftPackageReference section */
 
+/* Begin XCRemoteSwiftPackageReference section */
+		41FD955EA036DE2989325F4F /* XCRemoteSwiftPackageReference "Sparkle" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sparkle-project/Sparkle";
+			requirement = {
+				kind = exactVersion;
+				version = 2.10.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
 /* Begin XCSwiftPackageProductDependency section */
 		170DA251E75B199C8438FF08 /* VaasiCore */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = VaasiCore;
+		};
+		C1EA5F697BBFB6AB203C6C08 /* Sparkle */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 41FD955EA036DE2989325F4F /* XCRemoteSwiftPackageReference "Sparkle" */;
+			productName = Sparkle;
 		};
 		F2086ED8E23FBF2926BEEBA0 /* VaasiCore */ = {
 			isa = XCSwiftPackageProductDependency;

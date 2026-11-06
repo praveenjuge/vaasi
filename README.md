@@ -50,3 +50,43 @@ test listed for it in `features.json` ran and passed, plus any agent checks in
 
 To add a feature: implement it, add tests, and add an entry to `features.json`
 pointing at them.
+
+## Releases
+
+Every push to `main` that changes more than docs runs
+`.github/workflows/release.yml`. It takes the latest `v*` tag and bumps the patch
+(the first release is `v0.1.0`), runs the core and app tests, then runs
+`scripts/release.sh`:
+
+1. Archives a universal Release build signed with Developer ID.
+2. Checks version, architectures, hardened runtime and entitlements (sandboxed,
+   no network access: Sparkle downloads through its own service).
+3. Notarizes and staples the app, a DMG and a signed PKG.
+4. Signs a Sparkle `appcast.xml` so installed copies update themselves.
+
+CI then installs the PKG, checks Gatekeeper, launches the app, and publishes
+the GitHub Release with DMG, ZIP, PKG and appcast.
+
+Repository secrets:
+
+| Secret | What |
+|---|---|
+| `DEVELOPER_ID_APPLICATION_P12`, `DEVELOPER_ID_INSTALLER_P12` | Base64 `.p12` exports of the two Developer ID identities |
+| `DEVELOPER_ID_P12_PASSWORD` | Their export password |
+| `ASC_KEY_P8`, `ASC_KEY_ID`, `ASC_ISSUER_ID` | App Store Connect API key used by `notarytool` |
+| `SPARKLE_PRIVATE_KEY` | Update signing key; the public half is `SUPublicEDKey` in `Info.plist` |
+
+The Sparkle key also lives in the login keychain under the account `vaasi`. To
+restore it in CI:
+
+```bash
+build/DerivedData/SourcePackages/artifacts/sparkle/Sparkle/bin/generate_keys --account vaasi -x key.txt
+gh secret set SPARKLE_PRIVATE_KEY < key.txt && trash key.txt
+```
+
+Build a release locally (needs the identities in your keychain):
+
+```bash
+ASC_KEY_PATH=~/.appstoreconnect/private_keys/AuthKey_<id>.p8 ASC_KEY_ID=<id> ASC_ISSUER_ID=<issuer> \
+  scripts/release.sh 0.1.0
+```

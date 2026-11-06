@@ -6,3 +6,5 @@ xcuserdata/
 build/
 verification/runs/
 .DS_Store
+dist/
+verification/LATEST.md

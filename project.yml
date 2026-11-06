@@ -7,11 +7,14 @@ options:
   createIntermediateGroups: true
   groupSortPosition: top
   generateEmptyDirectories: true
-  xcodeVersion: "27.0"
+  xcodeVersion: "26.0"
 
 packages:
   VaasiKit:
     path: Packages/VaasiKit
+  Sparkle:
+    url: https://github.com/sparkle-project/Sparkle
+    exactVersion: 2.10.0
 
 settings:
   base:
@@ -49,6 +52,8 @@ targets:
     dependencies:
       - package: VaasiKit
         product: VaasiCore
+      - package: Sparkle
+        product: Sparkle
 
   VaasiTests:
     type: bundle.unit-test

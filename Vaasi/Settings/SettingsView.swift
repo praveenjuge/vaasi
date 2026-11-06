@@ -17,6 +17,7 @@ struct SettingsView: View {
 
 private struct GeneralSettings: View {
     @Environment(Preferences.self) private var preferences
+    @Environment(Updater.self) private var updater
 
     var body: some View {
         @Bindable var preferences = preferences
@@ -39,6 +40,14 @@ private struct GeneralSettings: View {
             Text("The prompter itself is always hidden from screen sharing and screenshots.")
                 .font(.footnote)
                 .foregroundStyle(.secondary)
+            Section {
+                Toggle("Check for updates automatically", isOn: Binding(
+                    get: { updater.automaticallyChecks },
+                    set: { updater.automaticallyChecks = $0 }
+                ))
+                Button("Check Now") { updater.checkForUpdates() }
+                    .disabled(!updater.canCheckForUpdates)
+            }
         }
         .formStyle(.grouped)
     }
