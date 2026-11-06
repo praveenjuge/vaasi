@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+# Orb setup for Vaasi.
+#
+# Vaasi is a macOS app: every build and test (xcodegen, xcodebuild, swift test)
+# runs on a Mac satellite, not in this Debian orb. The Linux side only hosts
+# the repository checkout and runs scripts/feature_report.py, so setup stays
+# minimal. Start a Mac satellite and run scripts/mac-setup.sh there before
+# building; see AGENTS.md.
+set -euo pipefail
+
+step() { printf '[setup] %s\n' "$1"; }
+
+# Python 3 runs scripts/feature_report.py in scripts/verify.sh. It is normally
+# preinstalled in Amp orbs; only touch apt-get when it is missing so warm
+# snapshots skip the update entirely.
+if ! command -v python3 >/dev/null 2>&1; then
+  step "Installing python3"
+  apt-get update -qq
+  apt-get install -y -qq python3
+else
+  step "python3 already present: $(command -v python3)"
+fi
+
+step "Orb setup complete (macOS toolchain is provisioned on the Mac satellite by scripts/mac-setup.sh)"
