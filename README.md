@@ -67,24 +67,7 @@ Every push to `main` that changes more than docs runs
 CI then installs the PKG, checks Gatekeeper, launches the app, and publishes
 the GitHub Release with DMG, ZIP, PKG and appcast.
 
-Repository secrets:
-
-| Secret | What |
-|---|---|
-| `DEVELOPER_ID_APPLICATION_P12`, `DEVELOPER_ID_INSTALLER_P12` | Base64 `.p12` exports of the two Developer ID identities |
-| `DEVELOPER_ID_P12_PASSWORD` | Their export password |
-| `ASC_KEY_P8`, `ASC_KEY_ID`, `ASC_ISSUER_ID` | App Store Connect API key used by `notarytool` |
-| `SPARKLE_PRIVATE_KEY` | Update signing key; the public half is `SUPublicEDKey` in `Info.plist` |
-
-The Sparkle key also lives in the login keychain under the account `vaasi`. To
-restore it in CI:
-
-```bash
-build/DerivedData/SourcePackages/artifacts/sparkle/Sparkle/bin/generate_keys --account vaasi -x key.txt
-gh secret set SPARKLE_PRIVATE_KEY < key.txt && trash key.txt
-```
-
-Build a release locally (needs the identities in your keychain):
+Build a release locally (needs the Developer ID identities in your keychain and an App Store Connect API key):
 
 ```bash
 ASC_KEY_PATH=~/.appstoreconnect/private_keys/AuthKey_<id>.p8 ASC_KEY_ID=<id> ASC_ISSUER_ID=<issuer> \
