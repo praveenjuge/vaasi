@@ -1,0 +1,99 @@
+name: Vaasi
+options:
+  bundleIdPrefix: com.praveenjuge
+  deploymentTarget:
+    macOS: "26.0"
+  developmentLanguage: en
+  createIntermediateGroups: true
+  groupSortPosition: top
+  generateEmptyDirectories: true
+  xcodeVersion: "27.0"
+
+packages:
+  VaasiKit:
+    path: Packages/VaasiKit
+
+settings:
+  base:
+    DEVELOPMENT_TEAM: LW385M78LW
+    CODE_SIGN_STYLE: Automatic
+    MARKETING_VERSION: 0.1.0
+    CURRENT_PROJECT_VERSION: "1"
+    SWIFT_VERSION: "6.0"
+    SWIFT_STRICT_CONCURRENCY: complete
+    SWIFT_UPCOMING_FEATURE_EXISTENTIAL_ANY: YES
+    ENABLE_USER_SCRIPT_SANDBOXING: YES
+    DEAD_CODE_STRIPPING: YES
+    ENABLE_HARDENED_RUNTIME: YES
+    DEBUG_INFORMATION_FORMAT: dwarf-with-dsym
+
+targets:
+  Vaasi:
+    type: application
+    # Add iOS here when the iPhone app joins; keep platform-specific code behind #if os().
+    supportedDestinations: [macOS]
+    sources:
+      - path: Vaasi
+        excludes:
+          - "Resources/Info.plist"
+          - "Resources/*.entitlements"
+    settings:
+      base:
+        PRODUCT_NAME: Vaasi
+        PRODUCT_BUNDLE_IDENTIFIER: com.praveenjuge.vaasi
+        INFOPLIST_FILE: Vaasi/Resources/Info.plist
+        CODE_SIGN_ENTITLEMENTS: Vaasi/Resources/Vaasi.entitlements
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME: AccentColor
+        LD_RUNPATH_SEARCH_PATHS: "$(inherited) @executable_path/../Frameworks"
+    dependencies:
+      - package: VaasiKit
+        product: VaasiCore
+
+  VaasiTests:
+    type: bundle.unit-test
+    supportedDestinations: [macOS]
+    sources: [VaasiTests]
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.praveenjuge.vaasi.tests
+        GENERATE_INFOPLIST_FILE: YES
+        TEST_HOST: "$(BUILT_PRODUCTS_DIR)/Vaasi.app/Contents/MacOS/Vaasi"
+        BUNDLE_LOADER: "$(TEST_HOST)"
+    dependencies:
+      - target: Vaasi
+      - package: VaasiKit
+        product: VaasiCore
+
+  VaasiUITests:
+    type: bundle.ui-testing
+    supportedDestinations: [macOS]
+    sources: [VaasiUITests]
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.praveenjuge.vaasi.uitests
+        GENERATE_INFOPLIST_FILE: YES
+        TEST_TARGET_NAME: Vaasi
+    dependencies:
+      - target: Vaasi
+
+schemes:
+  Vaasi:
+    build:
+      targets:
+        Vaasi: all
+        VaasiTests: [test]
+        VaasiUITests: [test]
+    run:
+      config: Debug
+    test:
+      config: Debug
+      targets:
+        - VaasiTests
+        - VaasiUITests
+    archive:
+      config: Release
+    profile:
+      config: Release
+    analyze:
+      config: Debug

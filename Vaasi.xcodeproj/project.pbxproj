@@ -1,0 +1,720 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		02ACFE9869DC7C5CA167D931 /* AudioDevices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22936339E8337B1D8DD1E27C /* AudioDevices.swift */; };
+		05340DE7EB9C7C8F9BC096EA /* PrompterPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F2A3B5DABA7948822283F1 /* PrompterPanel.swift */; };
+		0D80A2BDAF7AA4E21AD6D66E /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921F4994DAAA5E0938D8AD26 /* Preferences.swift */; };
+		0F90DCA850186BF799580F71 /* AudioInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9894F2D320729E86A8A6F011 /* AudioInput.swift */; };
+		11F3286265B020A05658C4D5 /* ScriptEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C30ABD55CD899981BFABD6E0 /* ScriptEditor.swift */; };
+		1238F4F725422E04C9634F40 /* SpeechSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C1C23FF1B8339017DB3E9D /* SpeechSession.swift */; };
+		18D60E661869B6DDDBA3D50E /* PrompterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103D29B6BCA5BB8835530B90 /* PrompterController.swift */; };
+		392CE71941E6F81E86EF39AB /* LaunchOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37D0C3EB4E78B32D4F8C33A /* LaunchOptions.swift */; };
+		414D925F7F4D7AAEF10C7EEC /* HotKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 903DE464859926DE7B8806BF /* HotKeys.swift */; };
+		41C8E16A87979F371B19E8EE /* MicTester.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1DCACE30908195AC26F538C /* MicTester.swift */; };
+		455B90A1559987B4CD3E6FCC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 10C067F249304E66F9323644 /* Assets.xcassets */; };
+		4A3248E95204ABB32F069D1C /* NoteTransfer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A97A4B7ADC43753C4C6D9A /* NoteTransfer.swift */; };
+		53A956646FA9E2A7A6FD98B1 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7550DC400D12F9862A2D9B0 /* SettingsView.swift */; };
+		624097DA5BB3A8FEF8F17772 /* VaasiApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737B22CF13B4FD3D1571376B /* VaasiApp.swift */; };
+		64E5A9EF528E49916F50F527 /* PrompterTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36348F329BB0DC8D08899A38 /* PrompterTextView.swift */; };
+		79E534BC86EC248D566ED480 /* VaasiCore in Frameworks */ = {isa = PBXBuildFile; productRef = 170DA251E75B199C8438FF08 /* VaasiCore */; };
+		D60BD593248ECC72420870D1 /* PrompterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD87D8CA4237FF8F8CE5E8E2 /* PrompterView.swift */; };
+		E283C499FF00704E2176CF32 /* LibraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26464AF99BEF41FD6B0BFBDD /* LibraryView.swift */; };
+		E9AF0EF6A81098A6DB42ECA3 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BDFFEA8B5ECD004E1CCA631 /* Note.swift */; };
+		F0C0719ED371F3384AD07B0C /* CalibrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E822AEE750C181CE5C837EE0 /* CalibrationView.swift */; };
+		FD40A8EF5E49BCF1962D8D3C /* VaasiCore in Frameworks */ = {isa = PBXBuildFile; productRef = F2086ED8E23FBF2926BEEBA0 /* VaasiCore */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		0A834A0DFA84CE02E5D05447 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 85D17648FB41D895901783CF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 738BFB9609920FC4EA62B0E4;
+			remoteInfo = Vaasi;
+		};
+		F606BFE6EF8882C9370884C3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 85D17648FB41D895901783CF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 738BFB9609920FC4EA62B0E4;
+			remoteInfo = Vaasi;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		05155ECB2FAE2943979ED21F /* .keep */ = {isa = PBXFileReference; path = .keep; sourceTree = "<group>"; };
+		0EDFC27552B1C862838CA132 /* .keep */ = {isa = PBXFileReference; path = .keep; sourceTree = "<group>"; };
+		103D29B6BCA5BB8835530B90 /* PrompterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrompterController.swift; sourceTree = "<group>"; };
+		10C067F249304E66F9323644 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		22936339E8337B1D8DD1E27C /* AudioDevices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioDevices.swift; sourceTree = "<group>"; };
+		26464AF99BEF41FD6B0BFBDD /* LibraryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryView.swift; sourceTree = "<group>"; };
+		36348F329BB0DC8D08899A38 /* PrompterTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrompterTextView.swift; sourceTree = "<group>"; };
+		3BD5107355ED71B169346BA1 /* VaasiTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = VaasiTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		41D2756CF244623BF689373D /* Vaasi.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = Vaasi.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		737B22CF13B4FD3D1571376B /* VaasiApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaasiApp.swift; sourceTree = "<group>"; };
+		74A97A4B7ADC43753C4C6D9A /* NoteTransfer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteTransfer.swift; sourceTree = "<group>"; };
+		74F2A3B5DABA7948822283F1 /* PrompterPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrompterPanel.swift; sourceTree = "<group>"; };
+		903DE464859926DE7B8806BF /* HotKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotKeys.swift; sourceTree = "<group>"; };
+		921F4994DAAA5E0938D8AD26 /* Preferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
+		92FB707A91801093739A0219 /* VaasiKit */ = {isa = PBXFileReference; lastKnownFileType = folder; name = VaasiKit; path = Packages/VaasiKit; sourceTree = SOURCE_ROOT; };
+		9894F2D320729E86A8A6F011 /* AudioInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioInput.swift; sourceTree = "<group>"; };
+		9BDFFEA8B5ECD004E1CCA631 /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
+		A37D0C3EB4E78B32D4F8C33A /* LaunchOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchOptions.swift; sourceTree = "<group>"; };
+		AD87D8CA4237FF8F8CE5E8E2 /* PrompterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrompterView.swift; sourceTree = "<group>"; };
+		C30ABD55CD899981BFABD6E0 /* ScriptEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScriptEditor.swift; sourceTree = "<group>"; };
+		D6C1C23FF1B8339017DB3E9D /* SpeechSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechSession.swift; sourceTree = "<group>"; };
+		D7550DC400D12F9862A2D9B0 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		DE1B552698450DB4784317EA /* VaasiUITests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = VaasiUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E1DCACE30908195AC26F538C /* MicTester.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MicTester.swift; sourceTree = "<group>"; };
+		E822AEE750C181CE5C837EE0 /* CalibrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalibrationView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		641B54CA65C6121EAEFBAB41 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				79E534BC86EC248D566ED480 /* VaasiCore in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FC0E0C8ABA62E8F6A9C9A5D4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FD40A8EF5E49BCF1962D8D3C /* VaasiCore in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1261C1CB64E562634398E2BF /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				92FB707A91801093739A0219 /* VaasiKit */,
+			);
+			path = Packages;
+			sourceTree = "<group>";
+		};
+		187A9AB41012D1AA61716030 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9BDFFEA8B5ECD004E1CCA631 /* Note.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		1D39BBCD491DC1552864B01E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				41D2756CF244623BF689373D /* Vaasi.app */,
+				3BD5107355ED71B169346BA1 /* VaasiTests.xctest */,
+				DE1B552698450DB4784317EA /* VaasiUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		56F9676D859363462D199A67 /* Voice */ = {
+			isa = PBXGroup;
+			children = (
+				22936339E8337B1D8DD1E27C /* AudioDevices.swift */,
+				9894F2D320729E86A8A6F011 /* AudioInput.swift */,
+				D6C1C23FF1B8339017DB3E9D /* SpeechSession.swift */,
+			);
+			path = Voice;
+			sourceTree = "<group>";
+		};
+		5FD34DEA5A5B82A7FF121342 /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				26464AF99BEF41FD6B0BFBDD /* LibraryView.swift */,
+				74A97A4B7ADC43753C4C6D9A /* NoteTransfer.swift */,
+				C30ABD55CD899981BFABD6E0 /* ScriptEditor.swift */,
+			);
+			path = Library;
+			sourceTree = "<group>";
+		};
+		6015F1FF89B6895CA5173BB8 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				A37D0C3EB4E78B32D4F8C33A /* LaunchOptions.swift */,
+				921F4994DAAA5E0938D8AD26 /* Preferences.swift */,
+				737B22CF13B4FD3D1571376B /* VaasiApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		668EE2C2B14E41115711895D /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				E822AEE750C181CE5C837EE0 /* CalibrationView.swift */,
+				E1DCACE30908195AC26F538C /* MicTester.swift */,
+				D7550DC400D12F9862A2D9B0 /* SettingsView.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		692230EAEF5B32ED5B9C3908 /* Vaasi */ = {
+			isa = PBXGroup;
+			children = (
+				6015F1FF89B6895CA5173BB8 /* App */,
+				5FD34DEA5A5B82A7FF121342 /* Library */,
+				187A9AB41012D1AA61716030 /* Model */,
+				71930A348DC2D5E432A894D1 /* Prompter */,
+				768DED4FB93EB51DCED302DF /* Resources */,
+				668EE2C2B14E41115711895D /* Settings */,
+				56F9676D859363462D199A67 /* Voice */,
+			);
+			path = Vaasi;
+			sourceTree = "<group>";
+		};
+		71930A348DC2D5E432A894D1 /* Prompter */ = {
+			isa = PBXGroup;
+			children = (
+				903DE464859926DE7B8806BF /* HotKeys.swift */,
+				103D29B6BCA5BB8835530B90 /* PrompterController.swift */,
+				74F2A3B5DABA7948822283F1 /* PrompterPanel.swift */,
+				36348F329BB0DC8D08899A38 /* PrompterTextView.swift */,
+				AD87D8CA4237FF8F8CE5E8E2 /* PrompterView.swift */,
+			);
+			path = Prompter;
+			sourceTree = "<group>";
+		};
+		767F6153BF7DD29E9FE2ADBC /* VaasiTests */ = {
+			isa = PBXGroup;
+			children = (
+				0EDFC27552B1C862838CA132 /* .keep */,
+			);
+			path = VaasiTests;
+			sourceTree = "<group>";
+		};
+		768DED4FB93EB51DCED302DF /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				10C067F249304E66F9323644 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		966BFD7BC2136C109CE6344E /* VaasiUITests */ = {
+			isa = PBXGroup;
+			children = (
+				05155ECB2FAE2943979ED21F /* .keep */,
+			);
+			path = VaasiUITests;
+			sourceTree = "<group>";
+		};
+		FACA43ADA78DF25DBAE6A972 = {
+			isa = PBXGroup;
+			children = (
+				1261C1CB64E562634398E2BF /* Packages */,
+				692230EAEF5B32ED5B9C3908 /* Vaasi */,
+				767F6153BF7DD29E9FE2ADBC /* VaasiTests */,
+				966BFD7BC2136C109CE6344E /* VaasiUITests */,
+				1D39BBCD491DC1552864B01E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		738BFB9609920FC4EA62B0E4 /* Vaasi */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8726C6E537EC1485527C0FD0 /* Build configuration list for PBXNativeTarget "Vaasi" */;
+			buildPhases = (
+				8E295331BE4AD599884DD61A /* Sources */,
+				7DC641DD26AE423A1C0BE3A1 /* Resources */,
+				FC0E0C8ABA62E8F6A9C9A5D4 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Vaasi;
+			packageProductDependencies = (
+				F2086ED8E23FBF2926BEEBA0 /* VaasiCore */,
+			);
+			productName = Vaasi;
+			productReference = 41D2756CF244623BF689373D /* Vaasi.app */;
+			productType = "com.apple.product-type.application";
+		};
+		7FA65B1E5AB9451851FCA631 /* VaasiUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 07E660E62CA1174D0B5F8EFC /* Build configuration list for PBXNativeTarget "VaasiUITests" */;
+			buildPhases = (
+				EF34C56176D306D001680D20 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4D9B5B2156342D2A1E096F9A /* PBXTargetDependency */,
+			);
+			name = VaasiUITests;
+			packageProductDependencies = (
+			);
+			productName = VaasiUITests;
+			productReference = DE1B552698450DB4784317EA /* VaasiUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+		FF2F4ABA07DF80C4A56A198A /* VaasiTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C9371D184DF28228C83BAD75 /* Build configuration list for PBXNativeTarget "VaasiTests" */;
+			buildPhases = (
+				4AC25A9CDCDAA942209B54E4 /* Sources */,
+				641B54CA65C6121EAEFBAB41 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6150CA5A3A6EA37286F39E9B /* PBXTargetDependency */,
+			);
+			name = VaasiTests;
+			packageProductDependencies = (
+				170DA251E75B199C8438FF08 /* VaasiCore */,
+			);
+			productName = VaasiTests;
+			productReference = 3BD5107355ED71B169346BA1 /* VaasiTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		85D17648FB41D895901783CF /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 2700;
+				TargetAttributes = {
+					738BFB9609920FC4EA62B0E4 = {
+						DevelopmentTeam = LW385M78LW;
+						ProvisioningStyle = Automatic;
+					};
+					7FA65B1E5AB9451851FCA631 = {
+						DevelopmentTeam = LW385M78LW;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 738BFB9609920FC4EA62B0E4;
+					};
+					FF2F4ABA07DF80C4A56A198A = {
+						DevelopmentTeam = LW385M78LW;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 033EF1EAB39EEC969CFDE328 /* Build configuration list for PBXProject "Vaasi" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = FACA43ADA78DF25DBAE6A972;
+			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				BB2FA8A1E75E58D9A260A6A9 /* XCLocalSwiftPackageReference "Packages/VaasiKit" */,
+			);
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 1D39BBCD491DC1552864B01E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				738BFB9609920FC4EA62B0E4 /* Vaasi */,
+				FF2F4ABA07DF80C4A56A198A /* VaasiTests */,
+				7FA65B1E5AB9451851FCA631 /* VaasiUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		7DC641DD26AE423A1C0BE3A1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				455B90A1559987B4CD3E6FCC /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4AC25A9CDCDAA942209B54E4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8E295331BE4AD599884DD61A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				02ACFE9869DC7C5CA167D931 /* AudioDevices.swift in Sources */,
+				0F90DCA850186BF799580F71 /* AudioInput.swift in Sources */,
+				F0C0719ED371F3384AD07B0C /* CalibrationView.swift in Sources */,
+				414D925F7F4D7AAEF10C7EEC /* HotKeys.swift in Sources */,
+				392CE71941E6F81E86EF39AB /* LaunchOptions.swift in Sources */,
+				E283C499FF00704E2176CF32 /* LibraryView.swift in Sources */,
+				41C8E16A87979F371B19E8EE /* MicTester.swift in Sources */,
+				E9AF0EF6A81098A6DB42ECA3 /* Note.swift in Sources */,
+				4A3248E95204ABB32F069D1C /* NoteTransfer.swift in Sources */,
+				0D80A2BDAF7AA4E21AD6D66E /* Preferences.swift in Sources */,
+				18D60E661869B6DDDBA3D50E /* PrompterController.swift in Sources */,
+				05340DE7EB9C7C8F9BC096EA /* PrompterPanel.swift in Sources */,
+				64E5A9EF528E49916F50F527 /* PrompterTextView.swift in Sources */,
+				D60BD593248ECC72420870D1 /* PrompterView.swift in Sources */,
+				11F3286265B020A05658C4D5 /* ScriptEditor.swift in Sources */,
+				53A956646FA9E2A7A6FD98B1 /* SettingsView.swift in Sources */,
+				1238F4F725422E04C9634F40 /* SpeechSession.swift in Sources */,
+				624097DA5BB3A8FEF8F17772 /* VaasiApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EF34C56176D306D001680D20 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		4D9B5B2156342D2A1E096F9A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 738BFB9609920FC4EA62B0E4 /* Vaasi */;
+			targetProxy = 0A834A0DFA84CE02E5D05447 /* PBXContainerItemProxy */;
+		};
+		6150CA5A3A6EA37286F39E9B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 738BFB9609920FC4EA62B0E4 /* Vaasi */;
+			targetProxy = F606BFE6EF8882C9370884C3 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		18E7DA1FAA5F25B851212164 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = LW385M78LW;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 26.0;
+				MARKETING_VERSION = 0.1.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_STRICT_CONCURRENCY = complete;
+				SWIFT_UPCOMING_FEATURE_EXISTENTIAL_ANY = YES;
+				SWIFT_VERSION = 6.0;
+			};
+			name = Release;
+		};
+		2456D9BA1B5394EC11C5ABF2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = LW385M78LW;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 26.0;
+				MARKETING_VERSION = 0.1.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_STRICT_CONCURRENCY = complete;
+				SWIFT_UPCOMING_FEATURE_EXISTENTIAL_ANY = YES;
+				SWIFT_VERSION = 6.0;
+			};
+			name = Debug;
+		};
+		552A55FA55AA4F47E113F11C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.praveenjuge.vaasi.tests;
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = macosx;
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				TARGETED_DEVICE_FAMILY = "";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Vaasi.app/Contents/MacOS/Vaasi";
+			};
+			name = Debug;
+		};
+		7E2F1441550892D7B0B92DD3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Vaasi/Resources/Vaasi.entitlements;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = Vaasi/Resources/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.praveenjuge.vaasi;
+				PRODUCT_NAME = Vaasi;
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = macosx;
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				TARGETED_DEVICE_FAMILY = "";
+			};
+			name = Debug;
+		};
+		8F2AF648FEECE27559BDE0B2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.praveenjuge.vaasi.uitests;
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = macosx;
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				TARGETED_DEVICE_FAMILY = "";
+				TEST_TARGET_NAME = Vaasi;
+			};
+			name = Debug;
+		};
+		8F481B37EC3D5FD8BEA65E9C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.praveenjuge.vaasi.uitests;
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = macosx;
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				TARGETED_DEVICE_FAMILY = "";
+				TEST_TARGET_NAME = Vaasi;
+			};
+			name = Release;
+		};
+		90CB573BB20B5C34EF56BBC7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.praveenjuge.vaasi.tests;
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = macosx;
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				TARGETED_DEVICE_FAMILY = "";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Vaasi.app/Contents/MacOS/Vaasi";
+			};
+			name = Release;
+		};
+		CBDB00FD761407FE1AFD2D7A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Vaasi/Resources/Vaasi.entitlements;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = Vaasi/Resources/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.praveenjuge.vaasi;
+				PRODUCT_NAME = Vaasi;
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = macosx;
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				TARGETED_DEVICE_FAMILY = "";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		033EF1EAB39EEC969CFDE328 /* Build configuration list for PBXProject "Vaasi" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2456D9BA1B5394EC11C5ABF2 /* Debug */,
+				18E7DA1FAA5F25B851212164 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		07E660E62CA1174D0B5F8EFC /* Build configuration list for PBXNativeTarget "VaasiUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8F2AF648FEECE27559BDE0B2 /* Debug */,
+				8F481B37EC3D5FD8BEA65E9C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		8726C6E537EC1485527C0FD0 /* Build configuration list for PBXNativeTarget "Vaasi" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7E2F1441550892D7B0B92DD3 /* Debug */,
+				CBDB00FD761407FE1AFD2D7A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		C9371D184DF28228C83BAD75 /* Build configuration list for PBXNativeTarget "VaasiTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				552A55FA55AA4F47E113F11C /* Debug */,
+				90CB573BB20B5C34EF56BBC7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		BB2FA8A1E75E58D9A260A6A9 /* XCLocalSwiftPackageReference "Packages/VaasiKit" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = Packages/VaasiKit;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		170DA251E75B199C8438FF08 /* VaasiCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = VaasiCore;
+		};
+		F2086ED8E23FBF2926BEEBA0 /* VaasiCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = VaasiCore;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 85D17648FB41D895901783CF /* Project object */;
+}
