@@ -1,5 +1,6 @@
 import AVFoundation
 import Foundation
+import Speech
 import Testing
 import VaasiCore
 @testable import Vaasi
@@ -11,7 +12,7 @@ struct VoicePipelineTests {
 
     /// Real path: synthesized speech → audio sink → on-device recognizer →
     /// transcript → script follower.
-    @Test(.timeLimit(.minutes(2)))
+    @Test(.timeLimit(.minutes(2)), .enabled(if: SpeechTranscriber.isAvailable, "Needs on-device speech recognition"))
     func recognizerFollowsSpokenScript() async throws {
         let session = SpeechSession()
         var follower = ScriptFollower(text: script)
@@ -38,7 +39,8 @@ struct VoicePipelineTests {
         #expect(best >= follower.tokens.count - 4, "Follower reached the end (\(best)/\(follower.tokens.count))")
     }
 
-    @Test func supportedLocalesIncludeEnglish() async {
+    @Test(.enabled(if: SpeechTranscriber.isAvailable, "Needs on-device speech recognition"))
+    func supportedLocalesIncludeEnglish() async {
         let locales = await SpeechSession.supportedLocales()
         #expect(locales.contains { $0.identifier.hasPrefix("en") })
     }

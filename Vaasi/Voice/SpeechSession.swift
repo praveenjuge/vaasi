@@ -64,6 +64,9 @@ final class SpeechSession {
     /// Prepares the recognizer (downloading the language model the first time)
     /// and returns the feeder to pass audio into.
     func start(localeIdentifier: String) async throws -> SpeechFeeder {
+        // Some Macs (and virtual machines) can't transcribe on device; voice
+        // mode then scrolls on voice level alone.
+        guard SpeechTranscriber.isAvailable else { throw CocoaError(.featureUnsupported) }
         let requested = Locale(identifier: localeIdentifier)
         var locale = requested
         if let match = await SpeechTranscriber.supportedLocale(equivalentTo: requested) {
@@ -75,6 +78,11 @@ final class SpeechSession {
                                             transcriptionOptions: [],
                                             reportingOptions: [.volatileResults, .fastResults],
                                             attributeOptions: [])
+        // The app must hold a reservation for the language before its model can
+        // be checked or downloaded.
+        if !(await AssetInventory.reservedLocales).contains(where: { $0.identifier == locale.identifier }) {
+            _ = try await AssetInventory.reserve(locale: locale)
+        }
         if let request = try await AssetInventory.assetInstallationRequest(supporting: [transcriber]) {
             try await request.downloadAndInstall()
         }
