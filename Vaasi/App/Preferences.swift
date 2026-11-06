@@ -98,28 +98,41 @@ final class Preferences {
     init(defaults: UserDefaults) {
         self.defaults = defaults
         placement = PrompterPlacement(rawValue: defaults.string(forKey: "placement") ?? "") ?? .notch
-        textSize = defaults.object(forKey: "textSize") as? Double ?? 22
-        lineSpacing = defaults.object(forKey: "lineSpacing") as? Double ?? 6
+        textSize = Preferences.double(defaults, "textSize", 22)
+        lineSpacing = Preferences.double(defaults, "lineSpacing", 6)
         font = PrompterFont(rawValue: defaults.string(forKey: "font") ?? "") ?? .mono
         textColorHex = defaults.string(forKey: "textColor") ?? "#FFFFFF"
-        notchWidth = defaults.object(forKey: "notchWidth") as? Double ?? 440
-        notchHeight = defaults.object(forKey: "notchHeight") as? Double ?? 150
+        notchWidth = Preferences.double(defaults, "notchWidth", 440)
+        notchHeight = Preferences.double(defaults, "notchHeight", 150)
         floatingFrame = defaults.string(forKey: "floatingFrame") ?? ""
         scrollMode = ScrollMode(rawValue: defaults.string(forKey: "scrollMode") ?? "") ?? .voice
-        speedIndex = defaults.object(forKey: "speedIndex") as? Int ?? ScrollEngine.defaultSpeedIndex
-        adaptiveTempo = defaults.object(forKey: "adaptiveTempo") as? Bool ?? true
-        countdownSeconds = defaults.object(forKey: "countdownSeconds") as? Int ?? 3
-        hoverToPause = defaults.object(forKey: "hoverToPause") as? Bool ?? true
-        hideMainWindowFromCapture = defaults.object(forKey: "hideMainWindowFromCapture") as? Bool ?? true
+        speedIndex = Preferences.int(defaults, "speedIndex", ScrollEngine.defaultSpeedIndex)
+        adaptiveTempo = Preferences.bool(defaults, "adaptiveTempo", true)
+        countdownSeconds = Preferences.int(defaults, "countdownSeconds", 3)
+        hoverToPause = Preferences.bool(defaults, "hoverToPause", true)
+        hideMainWindowFromCapture = Preferences.bool(defaults, "hideMainWindowFromCapture", true)
         microphoneUID = defaults.string(forKey: "microphoneUID")
-        sensitivity = defaults.object(forKey: "sensitivity") as? Double ?? 0.6
-        autoGain = defaults.object(forKey: "autoGain") as? Bool ?? true
+        sensitivity = Preferences.double(defaults, "sensitivity", 0.6)
+        autoGain = Preferences.bool(defaults, "autoGain", true)
         noiseSuppression = defaults.bool(forKey: "noiseSuppression")
-        showsVoiceBeam = defaults.object(forKey: "showsVoiceBeam") as? Bool ?? true
+        showsVoiceBeam = Preferences.bool(defaults, "showsVoiceBeam", true)
         beamColorHex = defaults.string(forKey: "beamColor") ?? "#4F5BFF"
         speechLocale = defaults.string(forKey: "speechLocale") ?? Locale.current.identifier
         hasCompletedOnboarding = defaults.bool(forKey: "hasCompletedOnboarding")
         hasSeededNotes = defaults.bool(forKey: "hasSeededNotes")
+    }
+
+    // Converting getters: values passed on the command line arrive as strings.
+    private static func double(_ defaults: UserDefaults, _ key: String, _ fallback: Double) -> Double {
+        defaults.object(forKey: key) == nil ? fallback : defaults.double(forKey: key)
+    }
+
+    private static func int(_ defaults: UserDefaults, _ key: String, _ fallback: Int) -> Int {
+        defaults.object(forKey: key) == nil ? fallback : defaults.integer(forKey: key)
+    }
+
+    private static func bool(_ defaults: UserDefaults, _ key: String, _ fallback: Bool) -> Bool {
+        defaults.object(forKey: key) == nil ? fallback : defaults.bool(forKey: key)
     }
 
     var textColor: Color { Color(hex: textColorHex) }

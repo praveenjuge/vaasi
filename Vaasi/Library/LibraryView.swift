@@ -145,10 +145,10 @@ struct LibraryView: View {
         .frame(minWidth: 720, minHeight: 460)
         .background(WindowAccessor { window in
             prompter.mainWindow = window
-            window.sharingType = preferences.hideMainWindowFromCapture ? .none : .readOnly
+            window.sharingType = preferences.hideMainWindowFromCapture ? LaunchOptions.current.hiddenSharingType : .readOnly
         })
         .onChange(of: preferences.hideMainWindowFromCapture) { _, hidden in
-            prompter.mainWindow?.sharingType = hidden ? .none : .readOnly
+            prompter.mainWindow?.sharingType = hidden ? LaunchOptions.current.hiddenSharingType : .readOnly
         }
         .onChange(of: library.searchFocusRequest) { searchFocused = true }
         .onAppear {
@@ -193,7 +193,7 @@ struct LibraryView: View {
 
     private func loadDroppedFiles(_ providers: [NSItemProvider]) {
         for provider in providers {
-            _ = provider.loadObject(ofClass: URL.self) { url, _ in
+            _ = provider.loadObject(ofClass: URL.self) { @Sendable url, _ in
                 guard let url else { return }
                 Task { @MainActor in library.importFiles([url], into: context) }
             }
@@ -216,8 +216,6 @@ struct NoteRow: View {
                 .lineLimit(2)
         }
         .padding(.vertical, 3)
-        .accessibilityElement(children: .combine)
-        .accessibilityIdentifier("note.row")
     }
 }
 

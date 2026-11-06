@@ -412,6 +412,7 @@ final class PrompterController {
             "end=\(isAtEnd ? 1 : 0)",
             "placement=\(placement.rawValue)",
             "captureHidden=\(panel?.sharingType == NSWindow.SharingType.none ? 1 : 0)",
+            "mainCaptureHidden=\(mainWindow?.sharingType == NSWindow.SharingType.none ? 1 : 0)",
             "allSpaces=\(panel?.collectionBehavior.contains(.canJoinAllSpaces) == true ? 1 : 0)",
             "mainVisible=\(mainWindow?.isVisible == true ? 1 : 0)",
         ].joined(separator: ";")

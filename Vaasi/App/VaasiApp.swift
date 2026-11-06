@@ -23,7 +23,6 @@ final class AppModel {
         preferences = Preferences(defaults: defaults)
         if options.isUITesting {
             preferences.hasCompletedOnboarding = !options.showsOnboarding
-            preferences.countdownSeconds = 0
         }
         prompter = PrompterController(preferences: preferences, devices: devices, options: options)
 
@@ -54,6 +53,7 @@ struct VaasiApp: App {
                 .modelContainer(app.container)
                 .modifier(SettingsOpener(prompter: app.prompter))
         }
+        .defaultLaunchBehavior(.presented)
         .commands { VaasiCommands(app: app) }
 
         Window("Set Up Vaasi", id: "calibration") {
@@ -63,6 +63,8 @@ struct VaasiApp: App {
         }
         .windowResizability(.contentSize)
         .windowStyle(.hiddenTitleBar)
+        .defaultLaunchBehavior(.suppressed)
+        .restorationBehavior(.disabled)
 
         Settings {
             SettingsView()

@@ -1,0 +1,347 @@
+{
+  "about": "Every user-facing feature and the evidence that proves it works. scripts/verify.sh runs all tests, then fails if any 'done' feature has a missing or failing test. Test IDs: <bundle>/<Suite>/<test()>. 'agent' checks are verified by driving the real app (see verification/AGENT_CHECKS.md) and recorded in verification/agent-checks.json.",
+  "features": [
+    {
+      "id": "editor.library",
+      "name": "Built-in editor and notes library",
+      "source": "Homepage: Built-in editor",
+      "status": "done",
+      "tests": ["VaasiUITests/LibraryFlowTests/testStarterNotesAndWritingANewNote()"]
+    },
+    {
+      "id": "editor.welcome",
+      "name": "Welcome and cue tutorial notes on first launch",
+      "source": "Homepage editor screenshot",
+      "status": "done",
+      "tests": ["VaasiUITests/LibraryFlowTests/testStarterNotesAndWritingANewNote()"]
+    },
+    {
+      "id": "editor.divider",
+      "name": "Insert a divider from the right-click menu",
+      "source": "Changelog 1.5",
+      "status": "done",
+      "tests": [
+        "VaasiUITests/LibraryFlowTests/testInsertDividerFromContextMenu()",
+        "VaasiCoreTests/ScriptTests/dividerDetection()"
+      ]
+    },
+    {
+      "id": "editor.search",
+      "name": "Search across all notes with ⌘F",
+      "source": "Changelog 1.5",
+      "status": "done",
+      "tests": ["VaasiUITests/LibraryFlowTests/testSearchFindsTextAcrossAllNotes()"]
+    },
+    {
+      "id": "editor.import",
+      "name": "Import Markdown, text, RTF, DOCX, HTML and PDF by dropping files",
+      "source": "Changelog 1.5",
+      "status": "done",
+      "tests": [
+        "VaasiTests/NoteTransferTests/formatsRoundTripTheText(_:)",
+        "VaasiTests/NoteTransferTests/importDropsIntoTheLibrary()",
+        "VaasiTests/NoteTransferTests/unsupportedFilesAreRejected()"
+      ],
+      "agent": ["drop-import"]
+    },
+    {
+      "id": "editor.export",
+      "name": "Export any note to a file",
+      "source": "Changelog 1.5",
+      "status": "done",
+      "tests": [
+        "VaasiTests/NoteTransferTests/markdownKeepsTitleAndDividers()",
+        "VaasiTests/NoteTransferTests/dividersSurviveRichFormats()"
+      ]
+    },
+    {
+      "id": "editor.delete-confirm",
+      "name": "Deleting a note asks for confirmation",
+      "source": "Changelog 1.4",
+      "status": "done",
+      "tests": ["VaasiUITests/LibraryFlowTests/testDeletingANoteAsksFirst()"]
+    },
+    {
+      "id": "prompter.notch",
+      "name": "Prompter in the notch, right under the camera",
+      "source": "Homepage: Positioned at your camera",
+      "status": "done",
+      "tests": ["VaasiUITests/PrompterFlowTests/testNotchPrompterIsPrivateAndScrolls()"],
+      "agent": ["notch-look"]
+    },
+    {
+      "id": "prompter.private",
+      "name": "Prompter hidden from screen sharing and screenshots",
+      "source": "Homepage: Invisible to others",
+      "status": "done",
+      "tests": ["VaasiUITests/PrivacyTests/testPrompterAndLibraryAreHiddenFromScreenCapture()"],
+      "agent": ["capture-hidden"]
+    },
+    {
+      "id": "prompter.main-window-private",
+      "name": "Main window hidden from screen recording and sharing",
+      "source": "Changelog 1.4",
+      "status": "done",
+      "tests": ["VaasiUITests/PrivacyTests/testPrompterAndLibraryAreHiddenFromScreenCapture()"]
+    },
+    {
+      "id": "prompter.all-spaces",
+      "name": "Visible on every Space and above full-screen apps",
+      "source": "FAQ: two screens",
+      "status": "done",
+      "tests": ["VaasiUITests/PrompterFlowTests/testNotchPrompterIsPrivateAndScrolls()"]
+    },
+    {
+      "id": "prompter.floating",
+      "name": "Floating window you can place anywhere",
+      "source": "Homepage: Floating window; Changelog 1.31",
+      "status": "done",
+      "tests": ["VaasiUITests/PrompterFlowTests/testFloatingWindowCanMoveAndReturnToNotch()"],
+      "agent": ["floating-look"]
+    },
+    {
+      "id": "prompter.resize",
+      "name": "Resize the prompter by dragging its edges",
+      "source": "Changelog 1.6, 1.31",
+      "status": "done",
+      "tests": ["VaasiUITests/PrompterFlowTests/testDraggingTheEdgeResizesTheNotchPrompter()"]
+    },
+    {
+      "id": "prompter.hover-pause",
+      "name": "Hover to pause; click the icon to pause for longer",
+      "source": "Homepage: Pause",
+      "status": "done",
+      "tests": [
+        "VaasiUITests/PrompterFlowTests/testHoverPausesAndPauseButtonHolds()",
+        "VaasiCoreTests/ScrollEngineTests/pauseAndHoverHaltImmediately()"
+      ]
+    },
+    {
+      "id": "prompter.speed",
+      "name": "Stepped speed control down to 4 pt/s, with limits",
+      "source": "Homepage: Control the pace; Changelog 1.33, 1.4, 1.5",
+      "status": "done",
+      "tests": [
+        "VaasiUITests/PrompterFlowTests/testSpeedShortcutsStepAndClamp()",
+        "VaasiCoreTests/ScrollEngineTests/speedIsSteppedAndClamped()"
+      ]
+    },
+    {
+      "id": "prompter.manual-scroll",
+      "name": "Move through the script by hand (keyboard and trackpad)",
+      "source": "FAQ: lose my place",
+      "status": "done",
+      "tests": ["VaasiUITests/PrompterFlowTests/testLineStepShortcutsMoveTheText()"]
+    },
+    {
+      "id": "prompter.countdown",
+      "name": "Countdown before the prompter starts",
+      "source": "Homepage: Countdown timer",
+      "status": "done",
+      "tests": ["VaasiUITests/PrompterFlowTests/testCountdownBeforeStart()"]
+    },
+    {
+      "id": "prompter.end-indicator",
+      "name": "End-of-text indicator",
+      "source": "Changelog 1.33",
+      "status": "done",
+      "tests": [
+        "VaasiUITests/PrompterFlowTests/testEndOfScriptIsReached()",
+        "VaasiCoreTests/ScrollEngineTests/stopsAtEnd()"
+      ]
+    },
+    {
+      "id": "prompter.stop",
+      "name": "Stop button; the main window comes back on stop",
+      "source": "Changelog 1.4",
+      "status": "done",
+      "tests": ["VaasiUITests/PrompterFlowTests/testStopRestoresTheLibrary()"]
+    },
+    {
+      "id": "prompter.text-style",
+      "name": "Text size, font, line spacing and color",
+      "source": "Homepage: Customize text color / prompter size; Changelog 1.31",
+      "status": "done",
+      "tests": ["VaasiUITests/LibraryFlowTests/testSettingsShowsLivePreviewAndAllTabs()"],
+      "agent": ["text-color"]
+    },
+    {
+      "id": "prompter.cues",
+      "name": "Cues: split a script into sections and jump between them",
+      "source": "Homepage: Cue",
+      "status": "done",
+      "tests": [
+        "VaasiUITests/PrompterFlowTests/testCuesJumpBetweenSections()",
+        "VaasiCoreTests/ScriptTests/dividersSplitAndNameSections()",
+        "VaasiCoreTests/ScriptTests/sectionLookupByOffset()"
+      ]
+    },
+    {
+      "id": "prompter.continuous",
+      "name": "Continuous scrolling mode",
+      "source": "Changelog 1.5",
+      "status": "done",
+      "tests": [
+        "VaasiUITests/PrompterFlowTests/testNotchPrompterIsPrivateAndScrolls()",
+        "VaasiCoreTests/ScrollEngineTests/continuousModeScrollsAtSpeed()"
+      ]
+    },
+    {
+      "id": "voice.activity",
+      "name": "Scrolls while you speak, waits when you stop",
+      "source": "Homepage: Voice activated",
+      "status": "done",
+      "tests": [
+        "VaasiUITests/VoiceFlowTests/testScrollsWhileSpeakingAndHoldsInSilence()",
+        "VaasiCoreTests/ScrollEngineTests/voiceModeOnlyMovesWhileSpeaking()",
+        "VaasiCoreTests/VoiceActivityTests/detectsSpeechAndSilenceWithHysteresis()"
+      ],
+      "agent": ["real-mic"]
+    },
+    {
+      "id": "voice.adaptive-tempo",
+      "name": "Adaptive tempo: follows your place by recognizing speech on device",
+      "source": "Changelog 1.4",
+      "status": "done",
+      "tests": [
+        "VaasiUITests/VoiceFlowTests/testFollowsYourPlaceWithSpeechRecognition()",
+        "VaasiTests/VoicePipelineTests/recognizerFollowsSpokenScript()",
+        "VaasiCoreTests/ScriptFollowerTests/toleratesMisheardAndExtraWords()",
+        "VaasiCoreTests/ScriptFollowerTests/recoversAfterSkippingAhead()",
+        "VaasiCoreTests/ScriptFollowerTests/ignoresUnrelatedSpeech()"
+      ]
+    },
+    {
+      "id": "voice.beam",
+      "name": "Voice beam that responds to your volume, with a color choice",
+      "source": "Homepage: Voice visual feedback; Changelog 1.31, 1.5",
+      "status": "done",
+      "tests": [
+        "VaasiUITests/VoiceFlowTests/testVoiceBeamFollowsLevel()",
+        "VaasiCoreTests/VoiceActivityTests/levelNormalization()"
+      ],
+      "agent": ["beam-look"]
+    },
+    {
+      "id": "voice.mic-select",
+      "name": "Pick a microphone; hot-swap when devices change",
+      "source": "Changelog 1.33, 1.5",
+      "status": "done",
+      "tests": [
+        "VaasiTests/VoicePipelineTests/microphoneChoiceFallsBackWhenUnplugged()",
+        "VaasiUITests/LibraryFlowTests/testSettingsShowsLivePreviewAndAllTabs()"
+      ]
+    },
+    {
+      "id": "voice.sensitivity",
+      "name": "Microphone sensitivity, robust to steady background noise",
+      "source": "FAQ: background sounds",
+      "status": "done",
+      "tests": [
+        "VaasiCoreTests/VoiceActivityTests/sensitivityMovesThreshold()",
+        "VaasiCoreTests/VoiceActivityTests/steadyNoiseIsIgnored()"
+      ]
+    },
+    {
+      "id": "voice.noise-suppression",
+      "name": "Noise suppression",
+      "source": "Changelog 1.4",
+      "status": "done",
+      "tests": [],
+      "agent": ["noise-suppression"]
+    },
+    {
+      "id": "voice.auto-gain",
+      "name": "Automatic gain boost toggle",
+      "source": "Changelog 1.5",
+      "status": "done",
+      "tests": ["VaasiCoreTests/VoiceActivityTests/autoGainLiftsQuietInputButCapsBoost()"]
+    },
+    {
+      "id": "voice.silence-hint",
+      "name": "Silence hint naming the active input, linking to Settings",
+      "source": "Changelog 1.5",
+      "status": "done",
+      "tests": ["VaasiUITests/VoiceFlowTests/testSilenceHintNamesTheInput()"]
+    },
+    {
+      "id": "voice.language",
+      "name": "Speech language picker",
+      "source": "Changelog 1.4",
+      "status": "done",
+      "tests": [
+        "VaasiTests/VoicePipelineTests/supportedLocalesIncludeEnglish()",
+        "VaasiUITests/LibraryFlowTests/testFirstRunCalibrationWindow()"
+      ]
+    },
+    {
+      "id": "onboarding.calibration",
+      "name": "First-run calibration window",
+      "source": "Changelog 1.4",
+      "status": "done",
+      "tests": ["VaasiUITests/LibraryFlowTests/testFirstRunCalibrationWindow()"]
+    },
+    {
+      "id": "settings.live-preview",
+      "name": "Settings with a live notch preview",
+      "source": "Changelog 1.33, 1.5",
+      "status": "done",
+      "tests": ["VaasiUITests/LibraryFlowTests/testSettingsShowsLivePreviewAndAllTabs()"]
+    },
+    {
+      "id": "shortcuts.global",
+      "name": "Keyboard shortcuts that work from any app while presenting",
+      "source": "Homepage: Control it your way",
+      "status": "done",
+      "tests": [
+        "VaasiUITests/PrompterFlowTests/testSpeedShortcutsStepAndClamp()",
+        "VaasiUITests/PrompterFlowTests/testHoverPausesAndPauseButtonHolds()",
+        "VaasiUITests/PrompterFlowTests/testCuesJumpBetweenSections()"
+      ],
+      "agent": ["global-shortcut-other-app"]
+    },
+    {
+      "id": "privacy.local",
+      "name": "Scripts and voice never leave the Mac",
+      "source": "Homepage: Your content stays private",
+      "status": "done",
+      "tests": ["static/no-network-entitlement"]
+    },
+    {
+      "id": "app.clean-menu",
+      "name": "Clean app menu without Services",
+      "source": "Changelog 1.4",
+      "status": "done",
+      "tests": [],
+      "agent": ["menu"]
+    },
+    {
+      "id": "remote.iphone",
+      "name": "iPhone remote",
+      "source": "Homepage: Remote",
+      "status": "deferred",
+      "note": "Planned as an iOS destination of the same Vaasi target, sharing VaasiKit."
+    },
+    {
+      "id": "screen-recording",
+      "name": "Screen recording with camera bubble",
+      "source": "Changelog 1.6",
+      "status": "skipped",
+      "note": "Out of scope by choice."
+    },
+    {
+      "id": "licensing",
+      "name": "Trial and paid license",
+      "source": "Changelog 1.2",
+      "status": "skipped",
+      "note": "Out of scope by choice."
+    },
+    {
+      "id": "analytics",
+      "name": "Anonymous usage statistics",
+      "source": "Changelog 1.5",
+      "status": "skipped",
+      "note": "Out of scope by choice."
+    }
+  ]
+}

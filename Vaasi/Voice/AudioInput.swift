@@ -109,7 +109,7 @@ final class MicrophoneSource: AudioSource {
         let format = input.outputFormat(forBus: 0)
         guard format.sampleRate > 0, format.channelCount > 0 else { throw AudioInputError.noInputDevice }
         let sink = self.sink
-        input.installTap(onBus: 0, bufferSize: 1024, format: format) { buffer, _ in
+        input.installTap(onBus: 0, bufferSize: 1024, format: format) { @Sendable buffer, _ in
             sink?.process(buffer)
         }
         engine.prepare()
@@ -206,9 +206,10 @@ final class SynthesizedSource: AudioSource {
         let utterance = AVSpeechUtterance(string: text)
         utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
         let collected = SampleCollector()
+        // Callbacks below run on audio/synthesis threads, hence @Sendable (nonisolated).
         await withCheckedContinuation { (done: CheckedContinuation<Void, Never>) in
             let finished = OnceFlag()
-            synthesizer.write(utterance) { buffer in
+            synthesizer.write(utterance) { @Sendable buffer in
                 guard let pcm = buffer as? AVAudioPCMBuffer, pcm.frameLength > 0 else {
                     if finished.claim() { done.resume() }
                     return

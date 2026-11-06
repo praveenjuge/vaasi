@@ -43,13 +43,19 @@ final class PrompterPanel: NSPanel {
         hidesOnDeactivate = false
         isReleasedWhenClosed = false
         isMovableByWindowBackground = placement == .floating
-        sharingType = .none
+        sharingType = LaunchOptions.current.hiddenSharingType
         animationBehavior = .none
         var behavior: NSWindow.CollectionBehavior = [.canJoinAllSpaces, .fullScreenAuxiliary, .ignoresCycle]
         if placement == .notch { behavior.insert(.stationary) }
         collectionBehavior = behavior
         minSize = PrompterLayout.minFloatingSize
         setAccessibilityIdentifier("prompter.window")
+    }
+
+    /// The notch prompter covers the menu bar strip on purpose; don't let AppKit
+    /// push it down below the menu bar.
+    override func constrainFrameRect(_ frameRect: NSRect, to screen: NSScreen?) -> NSRect {
+        frameRect
     }
 
     override var canBecomeKey: Bool { false }
