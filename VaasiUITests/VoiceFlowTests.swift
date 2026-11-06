@@ -54,7 +54,10 @@ final class VoiceFlowTests: VaasiUITestCase {
         let text = app.staticTexts.containing(NSPredicate(format: "value CONTAINS 'Synthesized speech'")).firstMatch
         XCTAssertTrue(text.exists || hint.label.contains("Synthesized speech") || app.staticTexts["Not hearing anything from Synthesized speech."].exists,
                       "The hint names the active input")
-        XCTAssertTrue(app.buttons["Settings"].exists, "The hint links to Settings")
+        // macOS 27 reports link-style buttons as static text, so match the
+        // element by identifier rather than by button type.
+        XCTAssertTrue(app.buttons["Settings"].exists || app.descendants(matching: .any)["prompter.settings"].exists,
+                      "The hint links to Settings")
         attachScreenshot("silence-hint")
     }
 

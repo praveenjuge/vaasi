@@ -69,7 +69,11 @@ final class LibraryFlowTests: VaasiUITestCase {
     }
 
     func testFirstRunCalibrationWindow() {
-        launch(extraArguments: ["-ShowOnboarding"])
+        // Don't present the library: raising it would cover the onboarding
+        // window and swallow clicks meant for the calibration button. Present
+        // the held onboarding window directly instead.
+        launch(extraArguments: ["-ShowOnboarding"], presentLibrary: false)
+        app.menuBars.menuBarItems["Window"].menus.menuItems["Set Up Vaasi"].click()
         let done = app.buttons["calibration.done"]
         XCTAssertTrue(done.waitForExistence(timeout: 10), "Calibration window should open on first run")
         XCTAssertTrue(app.staticTexts["Set up your voice"].exists)

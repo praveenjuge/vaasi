@@ -86,6 +86,10 @@ struct PrompterView: View {
             accessoryBand
                 .frame(height: PrompterLayout.accessoryHeight)
         }
+        // No accessibilityIdentifier on these layout roots: on macOS 27 a
+        // container that carries one collapses into a leaf element and drops
+        // its children from the accessibility tree. The NSPanel already sets
+        // the window identifier natively.
         .overlay(alignment: .topLeading) { testProbe }
     }
 
@@ -144,6 +148,10 @@ struct PrompterView: View {
                 }
             }
         }
+        // No accessibilityIdentifier on these layout roots: on macOS 27 a
+        // container that carries one collapses into a leaf element and drops
+        // its children from the accessibility tree. The NSPanel already sets
+        // the window identifier natively.
         .overlay(alignment: .topLeading) { testProbe }
     }
 
@@ -219,15 +227,22 @@ struct PrompterView: View {
                 HStack(spacing: 8) {
                     Image(systemName: "mic.slash")
                     Text(hint)
+                        // Identifier on the text, not the HStack: macOS 27
+                        // collapses a container that carries an identifier
+                        // into a leaf element, hiding the Settings button.
+                        .accessibilityIdentifier("prompter.silenceHint")
                     Button("Settings") { controller.openSettings?() }
                         .buttonStyle(.link)
+                        // macOS 27 flattens link-style buttons into static
+                        // text; re-state the role and name for accessibility.
+                        .accessibilityAddTraits(.isButton)
+                        .accessibilityIdentifier("prompter.settings")
                 }
                 .font(.system(size: 11, weight: .medium))
                 .foregroundStyle(.white)
                 .padding(.horizontal, 12)
                 .padding(.vertical, 6)
                 .background(.black.opacity(0.85), in: Capsule())
-                .accessibilityIdentifier("prompter.silenceHint")
             } else if let error = controller.voiceError {
                 Text(error)
                     .font(.system(size: 11, weight: .medium))
@@ -241,15 +256,17 @@ struct PrompterView: View {
         .padding(.top, 6)
     }
 
-    /// Invisible element exposing live state to UI tests.
+    /// Invisible element exposing live state to UI tests. The state travels as
+    /// the text's value; a plain `accessibilityValue` modifier does not
+    /// round-trip over accessibility on macOS 27.
     @ViewBuilder
     private var testProbe: some View {
         if !controller.testState.isEmpty {
-            Color.clear
-                .frame(width: 1, height: 1)
-                .accessibilityElement()
+            Text(verbatim: controller.testState)
+                .font(.system(size: 1))
+                .foregroundStyle(.white.opacity(0.02))
+                .frame(width: 10, height: 4)
                 .accessibilityIdentifier("prompter.state")
-                .accessibilityValue(controller.testState)
         }
     }
 }

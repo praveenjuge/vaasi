@@ -177,9 +177,12 @@ final class PrompterController {
     }
 
     func togglePlacement() {
+        // Save while `placement` still names the mode we're leaving: leaving
+        // floating must persist its frame, and leaving notch must not record
+        // the notch frame as the floating frame.
+        saveFloatingFrame()
         preferences.placement = placement == .notch ? .floating : .notch
         placement = preferences.placement
-        saveFloatingFrame()
         if let frameObserver { NotificationCenter.default.removeObserver(frameObserver) }
         panel?.orderOut(nil)
         panel = nil

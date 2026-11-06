@@ -20,7 +20,7 @@ class VaasiUITestCase: XCTestCase {
     /// preferences for this run only.
     @discardableResult
     func launch(defaults: [String: String] = [:], audio: String? = nil, extraArguments: [String] = [],
-                allowCapture: Bool = true) -> XCUIApplication {
+                allowCapture: Bool = true, presentLibrary: Bool = true) -> XCUIApplication {
         let app = XCUIApplication()
         var settings = ["countdownSeconds": "0", "scrollMode": "continuous", "adaptiveTempo": "NO"]
         settings.merge(defaults) { $1 }
@@ -30,11 +30,12 @@ class VaasiUITestCase: XCTestCase {
         app.launch()
         app.activate()
         self.app = app
+        guard presentLibrary else { return app }
         let library = app.outlines["library.list"]
         if !library.waitForExistence(timeout: 3) {
-            // Under the test launcher SwiftUI holds the first window until the
-            // app receives an event; a normal launch shows it right away.
-            app.typeKey(.escape, modifierFlags: [])
+            // Under the test launcher SwiftUI holds the first window offscreen;
+            // ordering it from the Window menu presents it right away.
+            app.menuBars.menuBarItems["Window"].menus.menuItems["Vaasi"].click()
         }
         XCTAssertTrue(library.waitForExistence(timeout: 10), "Library window should open")
         return app
@@ -104,12 +105,26 @@ class VaasiUITestCase: XCTestCase {
 
     /// Moves the pointer away from the prompter so hover-pause doesn't interfere.
     func moveMouseAway() {
-        libraryWindow.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.5))
-            .withOffset(CGVector(dx: 0, dy: 2000)).hover()
+        // Hover just below the prompter panel, whose frame is the one element
+        // that stays valid while presenting. The library and app elements can
+        // report garbage frames on macOS 27, which sends the hover to infinity
+        // and aborts the test. Before the prompter starts, the pointer rests on
+        // the clicked note row — nowhere near the panel — so doing nothing is
+        // already safe.
+        let panel = app.descendants(matching: .any)["prompter.window"].firstMatch
+        guard panel.exists, panel.isHittable else { return }
+        let frame = panel.frame
+        guard frame.origin.x.isFinite, frame.origin.y.isFinite,
+              frame.width.isFinite, frame.height.isFinite, frame.width > 0, frame.height > 0 else { return }
+        panel.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 1.0))
+            .withOffset(CGVector(dx: 0, dy: 300)).hover()
     }
 
-    /// The prompter panel.
+    /// The prompter panel. macOS 27 keeps nonactivating panels out of the app's
+    /// window list, so fall back to the prompter's root element.
     var prompterWindow: XCUIElement {
-        app.windows.containing(.any, identifier: "prompter.state").firstMatch
+        let window = app.windows.containing(.any, identifier: "prompter.state").firstMatch
+        if window.exists { return window }
+        return app.descendants(matching: .any)["prompter.window"].firstMatch
     }
 }

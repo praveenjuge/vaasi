@@ -38,8 +38,11 @@ final class PrompterPanel: NSPanel {
         isOpaque = false
         backgroundColor = .clear
         hasShadow = placement == .floating
-        level = .statusBar
         isFloatingPanel = true
+        // Keep the notch prompter above the menu bar. Set the level after
+        // `isFloatingPanel`: its setter resets the window level to .floating,
+        // which leaves the controls row under the menu bar on macOS 27.
+        level = .statusBar
         hidesOnDeactivate = false
         isReleasedWhenClosed = false
         isMovableByWindowBackground = placement == .floating
