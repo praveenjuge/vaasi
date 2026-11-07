@@ -51,10 +51,10 @@ struct ColorChoice: Identifiable, Hashable {
     ]
 
     static let beam: [ColorChoice] = [
+        ColorChoice(name: "Orange", hex: "#FF6B12"),
         ColorChoice(name: "Blue", hex: "#4F5BFF"),
         ColorChoice(name: "Violet", hex: "#9B5CFF"),
         ColorChoice(name: "Teal", hex: "#22C7B8"),
-        ColorChoice(name: "Orange", hex: "#FF8A3D"),
         ColorChoice(name: "White", hex: "#FFFFFF"),
     ]
 }
@@ -116,7 +116,7 @@ final class Preferences {
         autoGain = Preferences.bool(defaults, "autoGain", true)
         noiseSuppression = defaults.bool(forKey: "noiseSuppression")
         showsVoiceBeam = Preferences.bool(defaults, "showsVoiceBeam", true)
-        beamColorHex = defaults.string(forKey: "beamColor") ?? "#4F5BFF"
+        beamColorHex = defaults.string(forKey: "beamColor") ?? "#FF6B12"
         speechLocale = defaults.string(forKey: "speechLocale") ?? Locale.current.identifier
         hasCompletedOnboarding = defaults.bool(forKey: "hasCompletedOnboarding")
         hasSeededNotes = defaults.bool(forKey: "hasSeededNotes")
