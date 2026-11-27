@@ -100,6 +100,13 @@
       "agent": ["floating-look"]
     },
     {
+      "id": "prompter.display",
+      "name": "Choose which display the prompter opens on",
+      "source": "User request",
+      "status": "done",
+      "tests": ["VaasiUITests/PrompterFlowTests/testPrompterOpensOnTheChosenDisplay()"]
+    },
+    {
       "id": "prompter.resize",
       "name": "Resize the prompter by dragging its edges",
       "source": "Changelog 1.6, 1.31",

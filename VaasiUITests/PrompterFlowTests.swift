@@ -1,3 +1,4 @@
+import AppKit
 import XCTest
 
 final class PrompterFlowTests: VaasiUITestCase {
@@ -147,6 +148,27 @@ final class PrompterFlowTests: VaasiUITestCase {
         prompterWindow.hover()
         app.buttons["prompter.placement"].click()
         waitForState("back in the notch") { $0["placement"] == "notch" }
+    }
+
+    func testPrompterOpensOnTheChosenDisplay() {
+        // The last display differs from the main one when several are connected.
+        let chosen = NSScreen.screens.last!
+        let uuid = CFUUIDCreateString(nil, CGDisplayCreateUUIDFromDisplayID(
+            chosen.deviceDescription[NSDeviceDescriptionKey("NSScreenNumber")] as! CGDirectDisplayID).takeRetainedValue()) as String
+        launch(defaults: ["prompterDisplay": uuid])
+        select(note: "Welcome")
+        startPrompter()
+        waitForState("on the chosen display") { $0["display"] == uuid }
+        prompterWindow.hover()
+        app.buttons["prompter.placement"].click()
+        waitForState("floating on the chosen display") { $0["placement"] == "floating" && $0["display"] == uuid }
+        app.terminate()
+
+        // An unplugged display falls back to a connected one.
+        launch(defaults: ["prompterDisplay": "00000000-0000-0000-0000-000000000000"])
+        select(note: "Welcome")
+        startPrompter()
+        waitForState("on a connected display") { !($0["display"] ?? "").isEmpty }
     }
 
     func testDraggingTheEdgeResizesTheNotchPrompter() {

@@ -183,6 +183,17 @@ final class PrompterController {
         saveFloatingFrame()
         preferences.placement = placement == .notch ? .floating : .notch
         placement = preferences.placement
+        rebuildPanel()
+    }
+
+    /// Settings picked another display: move a running prompter there now.
+    func prompterDisplayChanged() {
+        guard isActive else { return }
+        saveFloatingFrame()
+        rebuildPanel()
+    }
+
+    private func rebuildPanel() {
         if let frameObserver { NotificationCenter.default.removeObserver(frameObserver) }
         panel?.orderOut(nil)
         panel = nil
@@ -233,8 +244,14 @@ final class PrompterController {
 
     // MARK: Window
 
+    /// The display chosen in Settings, if it's connected.
+    private var chosenScreen: NSScreen? {
+        guard let uuid = preferences.prompterDisplay else { return nil }
+        return NSScreen.screens.first { $0.displayUUID == uuid }
+    }
+
     private var screen: NSScreen {
-        mainWindow?.screen ?? NSScreen.main ?? NSScreen.screens[0]
+        chosenScreen ?? mainWindow?.screen ?? NSScreen.main ?? NSScreen.screens[0]
     }
 
     private func showPanel() {
@@ -259,7 +276,9 @@ final class PrompterController {
             panel.setFrame(PrompterPanel.notchFrame(on: screen, size: size), display: true)
         case .floating:
             let saved = NSRectFromString(preferences.floatingFrame)
-            let frame = saved.width >= PrompterLayout.minFloatingSize.width && NSScreen.screens.contains(where: { $0.frame.intersects(saved) })
+            // With a chosen display, only reuse a saved frame that's on it.
+            let allowed = chosenScreen.map { [$0] } ?? NSScreen.screens
+            let frame = saved.width >= PrompterLayout.minFloatingSize.width && allowed.contains(where: { $0.frame.intersects(saved) })
                 ? saved : PrompterPanel.defaultFloatingFrame(on: screen)
             panel.setFrame(frame, display: true)
         }
@@ -414,6 +433,7 @@ final class PrompterController {
             "follow=\(follower.lastMatchedIndex)",
             "end=\(isAtEnd ? 1 : 0)",
             "placement=\(placement.rawValue)",
+            "display=\(panel?.screen?.displayUUID ?? "")",
             "captureHidden=\(panel?.sharingType == NSWindow.SharingType.none ? 1 : 0)",
             "mainCaptureHidden=\(mainWindow?.sharingType == NSWindow.SharingType.none ? 1 : 0)",
             "allSpaces=\(panel?.collectionBehavior.contains(.canJoinAllSpaces) == true ? 1 : 0)",

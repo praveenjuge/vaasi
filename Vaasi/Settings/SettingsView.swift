@@ -85,6 +85,7 @@ private struct PrompterSettings: View {
                 ForEach(PrompterPlacement.allCases) { Text($0.title).tag($0) }
             }
             .pickerStyle(.segmented)
+            DisplayPicker()
             Picker("Font", selection: $preferences.font) {
                 ForEach(PrompterFont.allCases) { Text($0.title).tag($0) }
             }
@@ -100,6 +101,34 @@ private struct PrompterSettings: View {
                 .foregroundStyle(.secondary)
         }
         .formStyle(.grouped)
+    }
+}
+
+/// Which monitor the prompter opens on. Lists connected displays and keeps
+/// showing a chosen one while it's unplugged.
+private struct DisplayPicker: View {
+    @Environment(Preferences.self) private var preferences
+    @Environment(PrompterController.self) private var prompter
+    @State private var screens: [(uuid: String, name: String)] = DisplayPicker.connected()
+
+    var body: some View {
+        @Bindable var preferences = preferences
+        Picker("Display", selection: $preferences.prompterDisplay) {
+            Text("Same as the Vaasi window").tag(String?.none)
+            ForEach(screens, id: \.uuid) { Text($0.name).tag(String?.some($0.uuid)) }
+            if let chosen = preferences.prompterDisplay, !screens.contains(where: { $0.uuid == chosen }) {
+                Text("Disconnected display").tag(String?.some(chosen))
+            }
+        }
+        .accessibilityIdentifier("settings.display")
+        .onChange(of: preferences.prompterDisplay) { prompter.prompterDisplayChanged() }
+        .onReceive(NotificationCenter.default.publisher(for: NSApplication.didChangeScreenParametersNotification)) { _ in
+            screens = DisplayPicker.connected()
+        }
+    }
+
+    private static func connected() -> [(uuid: String, name: String)] {
+        NSScreen.screens.compactMap { screen in screen.displayUUID.map { ($0, screen.localizedName) } }
     }
 }
 

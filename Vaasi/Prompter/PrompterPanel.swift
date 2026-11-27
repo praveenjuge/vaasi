@@ -19,6 +19,16 @@ struct NotchMetrics: Equatable {
     }
 }
 
+extension NSScreen {
+    /// Stable identifier for the display, kept across reconnects and restarts
+    /// (unlike the display number).
+    var displayUUID: String? {
+        guard let number = deviceDescription[NSDeviceDescriptionKey("NSScreenNumber")] as? CGDirectDisplayID,
+              let uuid = CGDisplayCreateUUIDFromDisplayID(number)?.takeRetainedValue() else { return nil }
+        return CFUUIDCreateString(nil, uuid) as String
+    }
+}
+
 /// Size of the band under the prompter that holds the cue bar and hints.
 enum PrompterLayout {
     static let accessoryHeight: CGFloat = 52

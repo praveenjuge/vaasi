@@ -70,6 +70,7 @@ struct VaasiApp: App {
 
         Settings {
             SettingsView()
+                .environment(app.prompter)
                 .environment(app.preferences)
                 .environment(app.devices)
                 .environment(app.updater)

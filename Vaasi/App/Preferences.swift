@@ -74,6 +74,8 @@ final class Preferences {
     var notchWidth: Double { didSet { save(notchWidth, "notchWidth") } }
     var notchHeight: Double { didSet { save(notchHeight, "notchHeight") } }
     var floatingFrame: String { didSet { save(floatingFrame, "floatingFrame") } }
+    /// UUID of the display the prompter opens on; nil follows the Vaasi window.
+    var prompterDisplay: String? { didSet { save(prompterDisplay, "prompterDisplay") } }
 
     // Playback
     var scrollMode: ScrollMode { didSet { save(scrollMode.rawValue, "scrollMode") } }
@@ -105,6 +107,7 @@ final class Preferences {
         notchWidth = Preferences.double(defaults, "notchWidth", 440)
         notchHeight = Preferences.double(defaults, "notchHeight", 150)
         floatingFrame = defaults.string(forKey: "floatingFrame") ?? ""
+        prompterDisplay = defaults.string(forKey: "prompterDisplay")
         scrollMode = ScrollMode(rawValue: defaults.string(forKey: "scrollMode") ?? "") ?? .voice
         speedIndex = Preferences.int(defaults, "speedIndex", ScrollEngine.defaultSpeedIndex)
         adaptiveTempo = Preferences.bool(defaults, "adaptiveTempo", true)
